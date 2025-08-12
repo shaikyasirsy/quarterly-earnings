@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Quarterly Earnings — Interactive Deck</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Reveal.js core (CDN) -->
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/reveal.css">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/theme/serif.css" id="theme">
+
+  <!-- Optional: Highlight.js default style (for code) -->
+  <link rel="stylesheet" href="https://unpkg.com/highlight.js@11.9.0/styles/default.min.css">
+
+  <!-- KaTeX style for math -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+
+  <style>
+    /* Small custom tweaks */
+    .email-badge {
+      font-size: 0.95rem;
+      opacity: 0.9;
+    }
+    .big-metric {
+      font-size: 2.5rem;
+      font-weight: 700;
+    }
+  </style>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- Title slide (HTML) -->
+      <section>
+        <h1>Q2 2025 — Quarterly Earnings</h1>
+        <p class="email-badge">Contact: <strong>23f3000880@ds.study.iitm.ac.in</strong></p>
+        <p>Technical presentation for stakeholders • Interactive demo slides</p>
+        <aside class="notes">
+          Welcome stakeholders — quick intro. Mention the deck is interactive and available on GitHub Pages.
+        </aside>
+      </section>
+
+      <!-- Markdown slide (uses data-markdown) -->
+      <section data-markdown>
+        <textarea data-template>
+## Executive Summary (Markdown slide)
+
+- Revenue ↑ 12% YoY
+- Net margin at **8.1%**
+- Key focus: digital channels & operational efficiency
+
+<!-- .element: class="fragment" -->
+1. Growth drivers revealed on next slide.<!-- .element: class="fragment" -->
+2. Risks & mitigations.<!-- .element: class="fragment" -->
+
+</textarea>
+        <aside class="notes">
+          Read through the bullets, then reveal the list items one-by-one using fragments.
+        </aside>
+      </section>
+
+      <!-- Slide with fragments + math -->
+      <section>
+        <h2>Financial Mechanics</h2>
+        <ul>
+          <li class="fragment">Revenue = Price × Volume</li>
+          <li class="fragment">EBITDA = Revenue − Operating Expenses</li>
+          <li class="fragment">Free Cash Flow: \( \text{FCF} = \text{EBIT}(1-\tau) + \text{Depreciation} - \text{CapEx} - \Delta \text{WC} \)</li>
+        </ul>
+        <p class="fragment">Example: Return on Invested Capital (ROIC): \( \text{ROIC} = \dfrac{\text{NOPAT}}{\text{Invested Capital}} \)</p>
+
+        <aside class="notes">
+          Use these equations to explain core metrics. NOPAT = Net Operating Profit After Tax.
+        </aside>
+      </section>
+
+      <!-- Code sample with syntax highlighting -->
+      <section>
+        <h2>Sample: Simple Python revenue projection</h2>
+
+        <pre><code class="language-python">
+# revenue_projection.py
+def project_revenue(base_rev, growth_rate, years=3):
+    projections = []
+    rev = base_rev
+    for y in range(1, years+1):
+        rev = rev * (1 + growth_rate)
+        projections.append((y, round(rev, 2)))
+    return projections
+
+print(project_revenue(1_000_000, 0.08, years=4))
+        </code></pre>
+
+        <aside class="notes">
+          Walk through the code. Explain assumptions: constant growth, no seasonality. Mention production-quality improvements later.
+        </aside>
+      </section>
+
+      <!-- Interactive reveal pieces (fragments with styled effects) -->
+      <section>
+        <h2>Highlights</h2>
+        <p class="fragment">• Customer Acquisition Cost down 9%<!-- .element: class="fragment" --></p>
+        <p class="fragment">• Digital sales now 42% of total<!-- .element: class="fragment" --></p>
+        <p class="fragment big-metric">Net Margin: 8.1%<!-- .element: class="fragment" --></p>
+
+        <aside class="notes">
+          Reveal each highlight with the spacebar; emphasize the big metric.
+        </aside>
+      </section>
+
+      <!-- Closing slide -->
+      <section>
+        <h2>Where to find the deck</h2>
+        <p>Published on GitHub Pages. Use the pattern:</p>
+        <pre><code>https://&lt;GITHUB_USERNAME&gt;.github.io/&lt;REPO&gt;/</code></pre>
+        <p>Contact: <strong>23f3000880@ds.study.iitm.ac.in</strong></p>
+
+        <aside class="notes">
+          Show the repo link and offer to email the full slide pack.
+        </aside>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- Reveal core + plugins -->
+  <script src="https://unpkg.com/reveal.js/dist/reveal.js"></script>
+
+  <!-- Plugins: Markdown, Notes, Highlight, Math -->
+  <script src="https://unpkg.com/reveal.js/dist/plugin/markdown/markdown.js"></script>
+  <script src="https://unpkg.com/reveal.js/dist/plugin/notes/notes.js"></script>
+  <script src="https://unpkg.com/reveal.js/dist/plugin/highlight/highlight.js"></script>
+  <script src="https://unpkg.com/reveal.js/dist/plugin/math/math.js"></script>
+
+  <script>
+    // Initialize Reveal with plugins
+    Reveal.initialize({
+      hash: true,
+      slideNumber: true,
+      plugins: [ RevealMarkdown, RevealNotes, RevealHighlight, RevealMath.KaTeX ],
+      // optional: configure highlight.js if needed
+      highlight: {
+        // use highlight.js auto-detection (Reveal handles loading)
+      },
+      math: {
+        // use KaTeX (fast rendering)
+        katex: {
+          // katex options can go here if needed
+        }
+      }
+    });
+  </script>
+</body>
+</html>
